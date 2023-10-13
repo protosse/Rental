@@ -5,19 +5,22 @@ import 'package:reader/src/common/common.dart';
 
 class BookCard extends ConsumerWidget {
   final String img;
-  final double width;
-  final Entry entry;
+  final double? width;
+  final String? tag;
 
   const BookCard({
     super.key,
     required this.img,
-    required this.entry,
-    this.width = 120,
+    this.width,
+    this.tag,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox(
+    return ConditionalWrap(
+      condition: tag != null,
+      wrapper: (child) => Hero(tag: tag!, child: child),
+      child: SizedBox(
       width: width,
       child: Card(
         shape: const RoundedRectangleBorder(
@@ -25,8 +28,7 @@ class BookCard extends ConsumerWidget {
         ),
         elevation: 4,
         child: InkWell(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          onTap: () {},
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             child: CachedNetworkImage(
@@ -42,6 +44,7 @@ class BookCard extends ConsumerWidget {
             ),
           ),
         ),
+      ),
       ),
     );
   }

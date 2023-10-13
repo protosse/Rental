@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:reader/src/features/features.dart';
+import 'package:reader/src/common/common.dart';
 
 part 'app_router.gr.dart'; 
 
@@ -24,6 +26,10 @@ class AppRouter extends _$AppRouter {
           path: 'explore-tab',
         )
       ]
-    )
+    ),
+        CupertinoRoute(
+          page: BookDetailsRoute.page,
+          path: '/book-details-tab',
+        ),
   ];
 }

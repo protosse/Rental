@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BookDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<BookDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BookDetailsScreen(
+          key: args.key,
+          entry: args.entry,
+          imgTag: args.imgTag,
+        ),
+      );
+    },
     ExploreRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -40,6 +51,49 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BookDetailsScreen]
+class BookDetailsRoute extends PageRouteInfo<BookDetailsRouteArgs> {
+  BookDetailsRoute({
+    Key? key,
+    required Entry entry,
+    String? imgTag,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BookDetailsRoute.name,
+          args: BookDetailsRouteArgs(
+            key: key,
+            entry: entry,
+            imgTag: imgTag,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BookDetailsRoute';
+
+  static const PageInfo<BookDetailsRouteArgs> page =
+      PageInfo<BookDetailsRouteArgs>(name);
+}
+
+class BookDetailsRouteArgs {
+  const BookDetailsRouteArgs({
+    this.key,
+    required this.entry,
+    this.imgTag,
+  });
+
+  final Key? key;
+
+  final Entry entry;
+
+  final String? imgTag;
+
+  @override
+  String toString() {
+    return 'BookDetailsRouteArgs{key: $key, entry: $entry, imgTag: $imgTag}';
+  }
 }
 
 /// generated route for

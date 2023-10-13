@@ -45,6 +45,6 @@ class ThemService {
 
 final themeServiceProvider = Provider<ThemService>(
   (ref) {
-    return ThemService(ref.watch(localStorageProvider));
+    return ThemService(ref.watch(sharedPreferencesProvider));
   },
 );

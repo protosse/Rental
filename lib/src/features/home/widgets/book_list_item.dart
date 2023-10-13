@@ -14,49 +14,51 @@ class BookListItem extends ConsumerWidget {
       onTap: () {},
       child: SizedBox(
         height: 150,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BookCard(
-              img: entry.link?.elementAt(1).href ?? '',
-              entry: entry,
-              width: 100,
-            ),
-            const SizedBox(width: 10.0),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    entry.title?.t ?? '',
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: context.theme.textTheme.titleLarge!.color),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    entry.author?.name?.t ?? '',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w800,
-                      color: context.theme.colorScheme.secondary,
-                    ),
-                  ),
-                  const SizedBox(height: 10.0),
-                  Text(
-                    entry.summary?.t ?? '',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: context.theme.textTheme.bodySmall!.color,
-                    ),
-                    maxLines: 3,
-                  ),
-                ],
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              BookCard(
+                img: entry.cover ?? '',
+                width: 100,
               ),
-            ),
-          ],
+              const SizedBox(width: 10.0),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      entry.title?.t ?? '',
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: context.theme.textTheme.titleLarge!.color),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      entry.author?.name?.t ?? '',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                        color: context.theme.colorScheme.secondary,
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      entry.summary?.t ?? '',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: context.theme.textTheme.bodySmall!.color,
+                      ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

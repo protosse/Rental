@@ -178,6 +178,14 @@ class Entry {
   @JsonKey(name: r'schema$Series')
   SchemaSeries? schemaSeries;
 
+  String? get cover {
+    return link?.elementAt(1).href;
+  }
+
+  String? get downloadUrl {
+    return link?.elementAt(3).href;
+  }
+
   Entry({
     this.title,
     this.id,
