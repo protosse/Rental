@@ -15,7 +15,6 @@ class PopularSection extends StatelessWidget {
       child: Center(
         child: ListView.builder(
           primary: false,
-          padding: const EdgeInsets.symmetric(horizontal: 15),
           scrollDirection: Axis.horizontal,
           itemCount: entries.length,
           shrinkWrap: true,

@@ -11,7 +11,6 @@ class NewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       primary: false,
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: entries.length,

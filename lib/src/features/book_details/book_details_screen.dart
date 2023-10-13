@@ -32,20 +32,42 @@ class _BookDetailsScreenState extends ConsumerState<BookDetailsScreen> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         children: [
           const SizedBox(height: 10.0),
           BookDescriptionSection(
             entry: widget.entry,
             imgTag: widget.imgTag,
           ),
+          const SizedBox(height: 30.0),
+          const SectionTitle(title: 'Book Description'),
+          divider(),
+          const SizedBox(height: 10.0),
+          DescriptionTextWidget(
+              text: widget.entry.summary?.t?.transferred ?? ''),
+          const SizedBox(height: 30.0),
+          const SectionTitle(
+            title: 'More from Author',
+          ),
+          divider(),
+          const SizedBox(height: 10.0),
+          MoreBooksFromAuthor(
+              bookId: widget.entry.id?.t,
+              authorUrl:
+                  widget.entry.author?.uri?.t?.replaceAll(r'\&lang=en', '') ??
+                      ''),
+          const SizedBox(height: 30.0),
         ],
       ),
     );
   }
 
-  void _share() {
-    Share.share('${widget.entry.title!.t} by ${widget.entry.author!.name!.t}'
-        'Read/Download ${widget.entry.title!.t} from ${widget.entry.downloadUrl}.');
+  Widget divider() {
+    return Divider(color: context.theme.textTheme.bodySmall!.color);
+  }
+
+  _share() {
+    Share.share('${widget.entry.title?.t} by ${widget.entry.author?.name?.t}'
+        'Read/Download ${widget.entry.title?.t} from ${widget.entry.downloadUrl}.');
   }
 }

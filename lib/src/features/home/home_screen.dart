@@ -48,6 +48,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             final recent = data.recentFeed;
             return RefreshIndicator(
                 child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   children: [
                     PopularSection(entries: popular.feed?.entry ?? []),
                     const SizedBox(height: 20.0),
@@ -61,6 +62,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
                 onRefresh: () async => loadData());
           },
+          error: (_, __) => MyErrorWidget(
+            refreshCallBack: () => loadData(),
+          ),
         ),
       ),
     );

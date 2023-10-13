@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reader/src/common/common.dart';
@@ -11,7 +12,12 @@ class BookListItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        final route = BookDetailsRoute(
+          entry: entry,
+        );
+        context.router.push(route);
+      },
       child: SizedBox(
         height: 150,
         child: IntrinsicHeight(

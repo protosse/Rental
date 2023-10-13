@@ -13,7 +13,6 @@ class CategotySection extends StatelessWidget {
       child: Center(
         child: ListView.builder(
           primary: false,
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           scrollDirection: Axis.horizontal,
           itemCount: links.length,
           shrinkWrap: true,
