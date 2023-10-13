@@ -24,7 +24,11 @@ class AppRouter extends _$AppRouter {
         CupertinoRoute(
           page: ExploreRoute.page,
           path: 'explore-tab',
-        )
+          ),
+          CupertinoRoute(
+            page: SettingsRoute.page,
+            path: 'settings-tab',
+          ),
       ]
     ),
         CupertinoRoute(

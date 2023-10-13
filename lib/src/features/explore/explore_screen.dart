@@ -17,7 +17,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'explore',
+          'Explore',
           style: TextStyle(fontSize: 20.0),
         ),
       ),

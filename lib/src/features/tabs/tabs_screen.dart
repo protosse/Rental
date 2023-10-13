@@ -14,6 +14,7 @@ class TabsScreen extends ConsumerWidget {
       routes: const [
         HomeRoute(),
         ExploreRoute(),
+        SettingsRoute(),
       ],
       transitionBuilder: (context, child, animation) =>
           FadeTransition(opacity: animation, child: child),
@@ -37,7 +38,11 @@ class TabsScreen extends ConsumerWidget {
               BottomNavigationBarItem(
                 icon: Icon(Feather.compass),
                 label: 'Explore',
-              )
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Feather.settings),
+                label: 'Settings',
+              ),
             ],
             onTap: tabsRouter.setActiveIndex,
             currentIndex: tabsRouter.activeIndex,
