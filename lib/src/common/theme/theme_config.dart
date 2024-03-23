@@ -10,8 +10,9 @@ class ThemeConfig {
   static Color smokeWhite = const Color(0xffF5F5F5);
 
   static ThemeData lightTheme = ThemeData(
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      secondary: lightBG,
+    colorScheme: const ColorScheme.light().copyWith(
+      primary: lightAccent,
+      secondary: lightAccent,
       brightness: Brightness.light,
     ),
     primaryColor: lightPrimary,
@@ -35,8 +36,9 @@ class ThemeConfig {
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      secondary: darkBG,
+    colorScheme: const ColorScheme.dark().copyWith(
+      primary: darkAccent,
+      secondary: lightAccent,
       brightness: Brightness.dark,
     ),
     primaryColor: darkPrimary,

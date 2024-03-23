@@ -25,9 +25,6 @@ class MyApp extends ConsumerWidget {
   ThemeData themeData(ThemeData theme) {
     return theme.copyWith(
       textTheme: GoogleFonts.sourceSans3TextTheme(theme.textTheme),
-      colorScheme: theme.colorScheme.copyWith(
-        secondary: ThemeConfig.lightAccent,
-      ),
     );
   }
 }

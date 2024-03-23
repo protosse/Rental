@@ -50,6 +50,13 @@ class BookDescriptionSection extends StatelessWidget {
                         .toList() ??
                     [],
               ),
+              const SizedBox(height: 5.0),
+              SizedBox(
+                height: 40,
+                child: DownloadButton(
+                  entry: entry,
+                ),
+              ),
             ],
           ),
         ),
