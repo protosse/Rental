@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 abstract class DownloadRepository {
   const DownloadRepository();
-  Future<void> addBook(Map<String, dynamic> book, String id);
+  Future<void> addBook(Book book, String id);
   Future<void> deleteBook(String id);
-  Future<List<Map<String, dynamic>>> downloadList();
-  Future<Map<String, dynamic>?> fetchBook(String id);
+  Future<List<Book>> downloadList();
+  Future<Book?> fetchBook(String id);
 }
 
 class DownloadRepositoryImpl extends DownloadRepository {
@@ -15,8 +15,8 @@ class DownloadRepositoryImpl extends DownloadRepository {
   DownloadRepositoryImpl({required this.localDataSource});
 
   @override
-  Future<void> addBook(Map<String, dynamic> book, String id) async {
-    await localDataSource.addBook(book, id);
+  Future<void> addBook(Book book, String id) async {
+    await localDataSource.addBook(book.toJson(), id);
   }
 
   @override
@@ -25,13 +25,17 @@ class DownloadRepositoryImpl extends DownloadRepository {
   }
 
   @override
-  Future<List<Map<String, dynamic>>> downloadList() async {
-    return await localDataSource.downloadList();
+  Future<List<Book>> downloadList() async {
+    return await localDataSource
+        .downloadList()
+        .then((value) => value.map((e) => Book.fromJson(e)).toList());
   }
 
   @override
-  Future<Map<String, dynamic>?> fetchBook(String id) async {
-    return await localDataSource.fetchBook(id);
+  Future<Book?> fetchBook(String id) async {
+    return await localDataSource
+        .fetchBook(id)
+        .then((value) => value == null ? null : Book.fromJson(value));
   }
 }
 

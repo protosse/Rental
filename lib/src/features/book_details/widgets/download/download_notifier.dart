@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:reader/src/common/common.dart';
 import 'package:reader/src/features/features.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -11,7 +12,7 @@ class DownloadNotifier extends _$DownloadNotifier {
   DownloadNotifier() : super();
 
   @override
-  Future<List<Map<String, dynamic>>> build() async {
+  Future<List<Book>> build() async {
     _repository = ref.watch(downloadRepositoryProvider);
     return _repository.downloadList();
   }
@@ -20,7 +21,7 @@ class DownloadNotifier extends _$DownloadNotifier {
     await _repository.fetchBook(id);
   }
 
-  Future<void> addBook(Map<String, dynamic> book, String id) async {
+  Future<void> addBook(Book book, String id) async {
     await _repository.addBook(book, id);
   }
 

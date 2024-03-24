@@ -27,7 +27,7 @@ dependencies:
   logger: ^2.0.2
   path: ^1.8.3
   path_provider: ^2.1.1
-  permission_handler: ^11.0.0
+  permission_handler: ^11.3.0
   riverpod_annotation: ^2.1.5
   sembast: ^3.5.0+1
   share_plus: ^7.1.0
@@ -37,6 +37,7 @@ dependencies:
 dev_dependencies:
   auto_route_generator: ^7.3.1
   build_runner: ^2.4.6
+  custom_lint: null
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
@@ -44,7 +45,6 @@ dev_dependencies:
   json_serializable: ^6.7.1
   riverpod_generator: ^2.3.2
   riverpod_lint: ^2.3.10
-  custom_lint:
 
 flutter:
   uses-material-design: true
