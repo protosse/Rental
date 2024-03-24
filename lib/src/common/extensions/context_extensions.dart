@@ -7,7 +7,14 @@ extension BuildContextExtensions on BuildContext {
 
   EdgeInsets get screenPadding => MediaQuery.paddingOf(this);
 
-  double get screenTextScaleFactor => MediaQuery.textScaleFactorOf(this);
+  TextScaler get screenTextScaleFactor => MediaQuery.textScalerOf(this);
+
+  bool get isSmallScreen => screenSize.width < 800;
+
+  bool get isMediumScreen =>
+      screenSize.width >= 800 && screenSize.width <= 1200;
+
+  bool get isLargeScreen => screenSize.width > 800 && !isMediumScreen;
 
   bool get isPlatformDarkThemed =>
       MediaQuery.platformBrightnessOf(this) == Brightness.dark;

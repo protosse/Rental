@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reader/src/common/common.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+part 'theme_service.g.dart';
 
 enum AppTheme {
   light,
@@ -26,10 +28,10 @@ enum AppTheme {
   }
 }
 
-class ThemService {
+class ThemeService {
   final SharedPreferences _sharedPreferences;
 
-  const ThemService(this._sharedPreferences);
+  const ThemeService(this._sharedPreferences);
 
   Future<bool> setCurrentAppTheme(AppTheme theme) {
     return _sharedPreferences.setString(
@@ -43,8 +45,13 @@ class ThemService {
   }
 }
 
-final themeServiceProvider = Provider<ThemService>(
-  (ref) {
-    return ThemService(ref.watch(sharedPreferencesProvider));
-  },
-);
+@riverpod
+ThemeService themeService(ThemeServiceRef ref) {
+  return ThemeService(ref.watch(sharedPreferencesProvider));
+}
+
+// final themeServiceProvider = Provider<ThemeService>(
+//   (ref) {
+//     return ThemeService(ref.watch(sharedPreferencesProvider));
+//   },
+// );

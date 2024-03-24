@@ -5,7 +5,7 @@ part 'theme_notifier.g.dart';
 
 @riverpod
 class ThemeNotifier extends _$ThemeNotifier {
-  late ThemService _themService;
+  late ThemeService _themService;
 
   ThemeNotifier() : super();
 

@@ -6,7 +6,7 @@ part of 'download_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$downloadNotifierHash() => r'b6f5c8dd15679937ea419d7f6e05dc3ab318c91e';
+String _$downloadNotifierHash() => r'59b118deb9a5531fa90800f2ad7f23d8970ea24a';
 
 /// See also [DownloadNotifier].
 @ProviderFor(DownloadNotifier)

@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:reader/src/common/common.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'app_dio.g.dart';
 
 class AppDio with DioMixin implements Dio {
   AppDio._() {
@@ -25,4 +27,9 @@ class AppDio with DioMixin implements Dio {
   static Dio getInstance() => AppDio._();
 }
 
-final dioProvider = Provider<Dio>((ref) => AppDio.getInstance());
+@riverpod
+Dio dio(DioRef ref) {
+  return AppDio.getInstance();
+}
+
+// final dioProvider = Provider<Dio>((ref) => AppDio.getInstance());

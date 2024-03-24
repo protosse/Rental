@@ -34,7 +34,7 @@ abstract class _$BookDetailsNotifier
     extends BuildlessAutoDisposeAsyncNotifier<CategoryFeed> {
   late final String url;
 
-  Future<CategoryFeed> build(
+  FutureOr<CategoryFeed> build(
     String url,
   );
 }
@@ -114,7 +114,7 @@ class BookDetailsNotifierProvider extends AutoDisposeAsyncNotifierProviderImpl<
   final String url;
 
   @override
-  Future<CategoryFeed> runNotifierBuild(
+  FutureOr<CategoryFeed> runNotifierBuild(
     covariant BookDetailsNotifier notifier,
   ) {
     return notifier.build(

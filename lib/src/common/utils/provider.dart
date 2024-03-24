@@ -1,6 +1,13 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
+part 'provider.g.dart';
+
+@riverpod
+SharedPreferences sharedPreferences(SharedPreferencesRef ref) {
   throw UnimplementedError();
-});
+}
+
+// final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
+//   throw UnimplementedError();
+// });

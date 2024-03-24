@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'theme_notifier.dart';
+part of 'home_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$themeNotifierHash() => r'30fe51117be880da68777f42e4640c99fcda5f25';
+String _$homeRepositoryHash() => r'096aef80ffcb164251e7870b577c8951cdba9c43';
 
-/// See also [ThemeNotifier].
-@ProviderFor(ThemeNotifier)
-final themeNotifierProvider =
-    AutoDisposeAsyncNotifierProvider<ThemeNotifier, AppTheme>.internal(
-  ThemeNotifier.new,
-  name: r'themeNotifierProvider',
+/// See also [homeRepository].
+@ProviderFor(homeRepository)
+final homeRepositoryProvider = AutoDisposeProvider<HomeRepository>.internal(
+  homeRepository,
+  name: r'homeRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$themeNotifierHash,
+      : _$homeRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$ThemeNotifier = AutoDisposeAsyncNotifier<AppTheme>;
+typedef HomeRepositoryRef = AutoDisposeProviderRef<HomeRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
